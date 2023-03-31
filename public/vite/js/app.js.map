@@ -1,0 +1,1 @@
+{"version":3,"file":"app.js","sources":["../../../resources/js/app.js"],"sourcesContent":["import '../css/app.css'\r\nconst app = document.querySelector(\"#app\");\r\nconsole.log(app);\r\nconsole.log(app);"],"names":["app"],"mappings":"AACA,MAAMA,EAAM,SAAS,cAAc,MAAM,EACzC,QAAQ,IAAIA,CAAG,EACf,QAAQ,IAAIA,CAAG"}
