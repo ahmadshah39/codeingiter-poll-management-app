@@ -20,20 +20,26 @@ class Auth extends ShieldAuth
      * ////////////////////////////////////////////////////////////////////
      */
     public array $views = [
-        // 'login'                       => '\CodeIgniter\Shield\Views\login',
-        'login'                       => '\App\Views\auth\login',
-        // 'register'                    => '\CodeIgniter\Shield\Views\register',
-        'register'                    => '\App\Views\auth\register',
-        // 'layout'                      => '\CodeIgniter\Shield\Views\layout',
+        // login flow
+        'login'                       => '\App\Views\Auth\login',
+        'register'                    => '\App\Views\Auth\register',
         'layout'                      => '\App\Views\layouts\auth-layout',
-        'action_email_2fa'            => '\CodeIgniter\Shield\Views\email_2fa_show',
-        'action_email_2fa_verify'     => '\CodeIgniter\Shield\Views\email_2fa_verify',
-        'action_email_2fa_email'      => '\CodeIgniter\Shield\Views\Email\email_2fa_email',
-        'action_email_activate_show'  => '\CodeIgniter\Shield\Views\email_activate_show',
-        'action_email_activate_email' => '\CodeIgniter\Shield\Views\Email\email_activate_email',
-        'magic-link-login'            => '\CodeIgniter\Shield\Views\magic_link_form',
-        'magic-link-message'          => '\CodeIgniter\Shield\Views\magic_link_message',
-        'magic-link-email'            => '\CodeIgniter\Shield\Views\Email\magic_link_email',
+
+        // Activate email
+        'action_email_activate_show'  => '\App\Views\Auth\email-activate-show',
+
+        // 2 factor auth
+        'action_email_2fa'            => '\App\Views\Auth\email-2fa-show',
+        'action_email_2fa_verify'     => '\App\Views\Auth\email-2fa-verify',
+        
+        // Forget password
+        'magic-link-login'            => '\App\Views\Auth\magic-link-form',
+        'magic-link-message'          => '\App\Views\Auth\magic-link-message',
+        
+        // Auth Related Emails
+        'action_email_2fa_email'      => '\App\Views\Emails\auth\email-2fa-email',
+        'action_email_activate_email' => '\App\Views\Emails\auth\email-activate-email',
+        'magic-link-email'            => '\App\Views\Emails\auth\magic-link-email',
     ];
 
     /**
@@ -66,8 +72,8 @@ class Auth extends ShieldAuth
      * @var array<string, class-string<ActionInterface>|null>
      */
     public array $actions = [
-        'register' => 'CodeIgniter\Shield\Authentication\Actions\EmailActivator',
-        'login'    => null,
+//        'register' => 'CodeIgniter\Shield\Authentication\Actions\EmailActivator',
+//        'login'    => 'CodeIgniter\Shield\Authentication\Actions\Email2FA',
     ];
 
     /**

@@ -1,4 +1,4 @@
 <?php
 
-$routes->get('/', 'Home::index');
-$routes->get('/', 'Home::index');
+$routes->get('/', 'DashboardController::index');
+$routes->match(['get', 'post'],'/polls', 'PollController::index');

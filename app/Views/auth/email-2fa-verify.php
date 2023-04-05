@@ -1,6 +1,6 @@
 <?= $this->extend(config('Auth')->views['layout']) ?>
 
-<?= $this->section('title') ?><?= lang('Auth.emailActivateTitle') ?> <?= $this->endSection() ?>
+<?= $this->section('title') ?><?= lang('Auth.email2FATitle') ?> <?= $this->endSection() ?>
 
 <?= $this->section('main') ?>
 
@@ -13,10 +13,10 @@
       <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-            <?= lang('Auth.emailActivateTitle') ?>
+                <?= lang('Auth.emailEnterCode') ?>
             </h1>
 
-            <p class="text-gray-900 dark:text-white"><?= lang('Auth.emailActivateBody') ?></p>
+            <p class="text-gray-900 dark:text-white"><?= lang('Auth.emailConfirmCode') ?></p>
 
             <?php if (session('error') !== null) : ?>
                 <?= view('components/error') ?>
@@ -28,7 +28,7 @@
                 <?= view('components/success') ?>
             <?php endif ?>
 
-              <form class="space-y-4 md:space-y-6" x-data="otpForm()" action="<?= site_url('auth/a/verify') ?>" method="post">
+              <form class="space-y-4 md:space-y-6" x-data="otpForm()" action="<?= url_to('auth-action-verify') ?>" method="post">
                 <?= csrf_field() ?>
                   
           <div class="flex flex-col space-y-16">
@@ -52,7 +52,7 @@
                 <input type="hidden" name="token" x-model="value">
               </div>
             </div>
-                <button type="submit" :disabled="!isValid" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><?= lang('Auth.send') ?></button>
+                <button type="submit" :disabled="!isValid" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><?= lang('Auth.confirm') ?></button>
               </form>
 
 
@@ -63,7 +63,6 @@
 </section>
 
 
-    
 <?= $this->endSection() ?>
 
 <?= $this->section('pageScripts') ?>
